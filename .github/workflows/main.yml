@@ -77,19 +77,24 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v2
     - run: |
-            cd /Users/runner/Library/Android/sdk
-            ls
-            brew cleanup
-            brew update
-            brew install watchman
-            brew install intel-haxm
-            sdkmanager --install "system-images;android-31;google_apis_playstore;x86_64"
-            avdmanager create avd --force -n test --abi "x86_64" --package "system-images;android-31;google_apis_playstore;x86_64" --tag "google_apis_playstore" --device "Nexus 6"
-            sdkmanager --licenses
-            emulator -list-avds
-    - name: Launch Emulator
-      run: | 
-            /Users/runner/Library/Android/sdk/emulator/emulator -avd test -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim &
-            # $ANDROID_HOME/platform-tools/adb wait-for-device 
-            adb devices
+            echo no | $ANDROID_HOME/tools/android create avd --force -n test -t android-21 --abi default/armeabi-v7a
+            $ANDROID_HOME/tools/android list avd
+            $ANDROID_HOME/tools/emulator64-arm -avd test -no-window -no-boot-anim -no-audio -verbose &
+            wait-for-emulator
+            unlock-emulator-screen
+       #     cd /Users/runner/Library/Android/sdk
+        #    ls
+         #   brew cleanup
+         #   brew update
+         #   brew install watchman
+         #   brew install intel-haxm
+         #   sdkmanager --install "system-images;android-31;google_apis_playstore;x86_64"
+         #   avdmanager create avd --force -n test --abi "x86_64" --package "system-images;android-31;google_apis_playstore;x86_64" --tag "google_apis_playstore" --device "Nexus 6"
+         #   sdkmanager --licenses
+         #   emulator -list-avds
+    #- name: Launch Emulator
+     # run: | 
+      #      /Users/runner/Library/Android/sdk/emulator/emulator -avd test -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim &
+       #     # $ANDROID_HOME/platform-tools/adb wait-for-device 
+        #    adb devices
            
