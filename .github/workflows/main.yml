@@ -77,7 +77,7 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v2
     - run: |
-            echo no | $ANDROID_HOME/tools/android create avd --force -n test -t android-21 --abi default/armeabi-v7a
+            echo no | $ANDROID_HOME/tools/avdmanager create avd --force -n test -t android-21 --abi default/armeabi-v7a
             $ANDROID_HOME/tools/android list avd
             $ANDROID_HOME/tools/emulator64-arm -avd test -no-window -no-boot-anim -no-audio -verbose &
             wait-for-emulator
