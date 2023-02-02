@@ -79,9 +79,8 @@ jobs:
     - run: |
             sdkmanager --install "system-images;android-31;google_apis_playstore;x86_64"
             /bin/sh -c \echo no | avdmanager --verbose create avd --force --name "my_android_31" --package "system-images;android-31;google_apis_playstore;x86_64" --tag "google_apis_playstore" --abi "x86_64"
-            $ANDROID_HOME/tools/emulator64-arm -avd my_android_31 -no-window -no-boot-anim -no-audio -verbose &
-            wait-for-emulator
-            unlock-emulator-screen
+            \echo no | $ANDROID_HOME/tools/emulator64-arm -avd my_android_31 -no-window -no-boot-anim -no-audio -verbose &
+
        #     cd /Users/runner/Library/Android/sdk
         #    ls
          #   brew cleanup
