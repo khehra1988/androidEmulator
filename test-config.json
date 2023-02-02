@@ -1,0 +1,17 @@
+{
+"automatedTestNamePrefix": "GitHub Actions:",
+"config": {
+"deviceAppType": "WEB",
+"deviceTestType": "SELENIUM_NODE",
+"type": "BROWSER",
+"executionConfiguration": {
+"videoCapture": true
+}
+},
+"browsers": {
+"browserNames": ["chrome"],
+"platformNames": ["windows"]
+},
+"select": 2,
+ "testPackageURI": "./test_project/test_package.zip"
+}

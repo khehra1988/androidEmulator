@@ -1,0 +1,8 @@
+{
+"baseURI": "https://api.testlio.com",
+"platformURI": "https://app.testlio.com/tmt/project/",
+"projectId": 2979,
+"automatedRunCollectionGuid": "b17d7691-af34-464f-9a97-8f9426cdf3eb",
+"testRunCollectionGuid": "a2f5b246-a9dd-4a44-b0d2-4c256efc376b",
+"workspaceName": "Loupe Sandbox"
+}
