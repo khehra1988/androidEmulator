@@ -17,6 +17,10 @@ jobs:
     - uses: actions/setup-node@v2
       with:
        node-version: '12'
+    - run: |
+            npm install -g appium
+            appium -v
+            appium &>/dev/null &
 
     - name: checkout
       uses: actions/checkout@v3
@@ -36,11 +40,6 @@ jobs:
             ~/.android/avd/*
             ~/.android/adb*
           key: avd-${{ matrix.api-level }}
-    - name: Run Appium Server
-    - run: |
-            npm install -g appium
-            appium -v
-            appium &>/dev/null &
 
     - name: Run TEst
       uses: reactivecircus/android-emulator-runner@v2
